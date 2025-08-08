@@ -1,6 +1,6 @@
 const sorts = ['quality', 'seedsdesc', 'sizedesc', 'sizeasc', 'qualitythensize'];
 const qualityExclusions = ['4k', '1080p', '720p', '480p', 'rips', 'cam', 'unknown'];
-const languages = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ru', 'in', 'nl', 'hu', 'la', 'multi'];
+const languages = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ru', 'in', 'nl', 'hu', 'la', 'sk', 'cz', 'multi'];
 
 document.addEventListener('DOMContentLoaded', function () {
     updateProviderFields();
@@ -60,6 +60,7 @@ function loadData() {
         document.getElementById('exclusion-keywords').value = (data.exclusionKeywords || []).join(', ');
         document.getElementById('maxSize').value = data.maxSize;
         document.getElementById('resultsPerQuality').value = data.resultsPerQuality;
+        document.getElementById('resultsPerIndexer').value = data.resultsPerIndexer;
         document.getElementById('maxResults').value = data.maxResults;
         if (document.getElementById('jackett')) {
             document.getElementById('jackett').checked = data.jackett;
@@ -120,6 +121,7 @@ function getLink(method) {
     const exclusionKeywords = document.getElementById('exclusion-keywords').value.split(',').map(keyword => keyword.trim()).filter(keyword => keyword !== '');
     let maxSize = document.getElementById('maxSize').value;
     let resultsPerQuality = document.getElementById('resultsPerQuality').value;
+    let resultsPerIndexer = document.getElementById('resultsPerIndexer').value;
     let maxResults = document.getElementById('maxResults').value;
     const jackett = document.getElementById('jackett')?.checked;
     const cache = document.getElementById('cache')?.checked;
@@ -162,6 +164,9 @@ function getLink(method) {
     if (resultsPerQuality === '' || isNaN(resultsPerQuality)) {
         resultsPerQuality = 1;
     }
+    if (resultsPerIndexer === '' || isNaN(resultsPerIndexer)) {
+        resultsPerIndexer = 5;
+    }
     let data = {
         addonHost,
         jackettHost,
@@ -174,6 +179,7 @@ function getLink(method) {
         getAllLanguages,
         'sort': filter,
         resultsPerQuality,
+        resultsPerIndexer,
         maxResults,
         'exclusion': selectedQualityExclusion,
         tmdbApi,

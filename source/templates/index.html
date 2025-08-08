@@ -445,6 +445,14 @@
                                     <input type="checkbox" id="la"/>
                                     🇲🇽 <span class="ml-1">Latin</span>
                                 </label>
+                                <label for="sk">
+                                    <input type="checkbox" id="sk"/>
+                                    🇸🇰 <span class="ml-1">Slovak</span>
+                                </label>
+                                <label for="cz">
+                                    <input type="checkbox" id="cz"/>
+                                    🇨🇿 <span class="ml-1">Czech</span>
+                                </label>
                                 <label for="multi">
                                     <input type="checkbox" id="multi"/>
                                     🌍 <span class="ml-1">MULTi</span>
@@ -492,6 +500,25 @@
                             <div class="mt-2">
                                 <input oninput="" type="text" name="resultsPerQuality" id="resultsPerQuality"
                                        autocomplete="resultsPerQuality"
+                                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                       placeholder="5">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-6 space-y-6">
+                        <div class="sm:col-span-3">
+                            <label for="maxSize" class="block text-sm font-medium mb-2 dark:text-white">Results per
+                                indexer</label>
+                            <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Set the amount of maximum
+                                results you want
+                                per
+                                indexer.</p>
+
+                            <div class="mt-2">
+                                <input oninput="" type="text" name="resultsPerQuality" id="resultsPerIndexer"
+                                       autocomplete="resultsPerIndexer"
                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                        placeholder="5">
                             </div>
