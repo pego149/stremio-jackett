@@ -38,12 +38,4 @@ jobs:
           context: source/.
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: belmeg/stremio-addon-jackett:latest
-
-      - name: 🚀 Build and push for version tag
-        uses: docker/build-push-action@v5
-        with:
-          context: source/.
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: belmeg/stremio-addon-jackett:${{ github.event.release.tag_name }}
+          tags: pego149/stremio-jackett:latest
