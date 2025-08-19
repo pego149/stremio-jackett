@@ -175,7 +175,7 @@ async def get_results(config: str, stream_type: str, stream_id: str, request: Re
 
     logger.debug("Converting result to TorrentItems (results: " + str(len(search_results)) + ")")
     torrent_service = TorrentService()
-    torrent_results = torrent_service.convert_and_process(search_results)
+    torrent_results = torrent_service.convert_and_process(search_results, media)
     logger.debug("Converted result to TorrentItems (results: " + str(len(torrent_results)) + ")")
 
     torrent_smart_container = TorrentSmartContainer(torrent_results, media)

@@ -11,7 +11,7 @@ video_formats = {".mkv", ".mp4", ".avi", ".mov", ".flv", ".wmv", ".webm", ".mpg"
                  ".svi", ".3gp", ".3g2", ".mxf", ".roq", ".nsv", ".flv", ".f4v", ".f4p", ".f4a", ".f4b"}
 
 
-def season_episode_in_filename(filename, season, episode):
+def season_episode_in_filename(filename, season, episode, strict=False):
     if not is_video_file(filename):
         return False
     parsed_name = parse(filename)
