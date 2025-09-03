@@ -207,7 +207,7 @@ async def get_results(config: str, stream_type: str, stream_id: str, request: Re
 
 
 # @app.head("/playback/{config}/{query}")
-@app.get("/playback/{config}/{query}")
+@app.get("/playback/{config}/{query:path}")
 async def get_playback(config: str, query: str, request: Request):
     try:
         if not query:
