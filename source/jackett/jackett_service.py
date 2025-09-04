@@ -1,5 +1,6 @@
 import os
 import queue
+import re
 import threading
 import time
 import xml.etree.ElementTree as ET
@@ -276,8 +277,9 @@ class JackettService:
 
             # self.logger.info(result.title)
             # self.logger.info(parse(result.title))
-
-            parsed_result = parse(result.raw_title)
+            year_pattern = r'\(\d{4}(?:[–-]\d{4})?\)'
+            raw_title_cleaned = re.sub(year_pattern, '', result.raw_title).strip()
+            parsed_result = parse(raw_title_cleaned)
             # result.languages = [languages.get(name=language).alpha2 for language in parsed_result.language]
             result.parsed_data = parsed_result
             # TODO: replace with parsed_result.lang_codes when RTN is updated
