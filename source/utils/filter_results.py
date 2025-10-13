@@ -123,9 +123,6 @@ def filter_items(items, media, config):
         items = filter_out_non_matching(items, media.season, media.episode)
         logger.info(f"Item count changed to {len(items)}")
 
-    # TODO: is titles[0] always the correct title? Maybe loop through all titles and get the highest match?
-    items = remove_non_matching_title(items, media.titles)
-
     for filter_name, filter_instance in filters.items():
         try:
             logger.info(f"Filtering by {filter_name}: " + str(config[filter_name]))
