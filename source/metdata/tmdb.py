@@ -25,7 +25,7 @@ class TMDB(MetadataProvider):
 
         result = None
         if self.config.get('getAllLanguages', None) and self._indexers and len(self._indexers) > 0:
-          languages = list({indexer.language for indexer in self._indexers}) # Use set to remove duplicated languages
+          languages = ['sk', 'cs', 'en']
         else:
           languages = self.config['languages']
         for lang in languages:
