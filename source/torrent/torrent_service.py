@@ -166,7 +166,7 @@ class TorrentService:
             for file in files["path"]:
 
                 parsed_file = parse(file)
-                if int(media.season[-1]) in parsed_file.seasons and int(media.episode[-1]) in parsed_file.episodes:
+                if int(media.season[1:]) in parsed_file.seasons and int(media.episode[1:]) in parsed_file.episodes:
                     episode_files.append({
                         "file_index": file_index,
                         "title": file,
